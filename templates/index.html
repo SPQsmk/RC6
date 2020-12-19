@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='lock.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&family=Open+Sans:wght@300&display=swap"
+        rel="stylesheet">
+    <title>RC6</title>
+</head>
+
+<body>
+
+    <main class="main">
+        <div class="main__inner">
+            <div class="form">
+                <div class="form__inner" id="form__inner">
+                    <div class="form__title">RC6</div>
+
+                    <input type="file" id="file" hidden="hidden">
+                    <div class="file__input" onclick="get_file()">Файл</div>
+                    <span id="file__name" class="file__name">Выберите файл</span>
+
+                    <div class="form__group">
+                        <input class="form__input" placeholder=" " id="key">
+                        <label class="form__label">Ключ</label>
+                    </div>
+
+                    <div class="form__group">
+                        <input class="form__input" placeholder=" " id="c0">
+                        <label class="form__label">Начальный вектор</label>
+                    </div>
+
+                    <div class="key__container" onclick="get_key_size()">
+                        Размер ключа (Байты):
+                        <div class="key">
+                            <input class="key__radio" name="block_size" type="radio" id="16" value="16" checked>
+                            <label class="key__label" for="16">16</label>
+                        </div>
+                        <div class="key">
+                            <input class="key__radio" name="block_size" type="radio" id="24" value="24">
+                            <label class="key__label" for="24">24</label>
+                        </div>
+                        <div class="key">
+                            <input class="key__radio" name="block_size" type="radio" id="32" value="32">
+                            <label class="key__label" for="32">32</label>
+                        </div>
+                    </div>
+
+                    <div class="mode__container" onclick="get_mode()">
+                        <div class="mode">
+                            <input class="mode__radio" name="mode" type="radio" id="ecb" value="ecb" checked>
+                            <label class="mode__label" for="ecb">ECB</label>
+                        </div>
+                        <div class="mode">
+                            <input class="mode__radio" name="mode" type="radio" id="cbc" value="cbc">
+                            <label class="mode__label" for="cbc">CBC</label>
+                        </div>
+                        <div class="mode">
+                            <input class="mode__radio" name="mode" type="radio" id="cfb" value="cfb">
+                            <label class="mode__label" for="cfb">CFB</label>
+                        </div>
+                        <div class="mode">
+                            <input class="mode__radio" name="mode" type="radio" id="ofb" value="ofb">
+                            <label class="mode__label" for="ofb">OFB</label>
+                        </div>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="checkbox" class="checkbox__input" id="checkbox">
+                        <label for="checkbox" class="checkbox__label">Расшифровать</label>
+                    </div>
+
+                    <button class="btn" id="but" onclick="communicate()">Ок</button>
+
+                    <div class="form__result" id="res"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+
+</html>
