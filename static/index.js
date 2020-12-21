@@ -40,7 +40,6 @@ function communicate() {
     let btn = document.getElementById("but")
 
     res.innerHTML = ""
-    btn.disabled = true
 
     let form = new FormData();
     message = document.getElementById("file")
@@ -49,6 +48,7 @@ function communicate() {
         res.innerHTML = ""
         return
     }
+    btn.disabled = true
 
     form.append("file", message.files[0])
     form.append("key", document.getElementById("key").value)
